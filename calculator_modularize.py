@@ -56,6 +56,7 @@ def evaluate(tokens):
     answer = 0
     tokens.insert(0, {'type': 'PLUS'}) # Insert a dummy '+' token
     index = 1
+    # calculate *,/
     while index < len(tokens):
         if tokens[index]['type'] == 'TIMES':
             mul = tokens[index-1]['number'] * tokens[index+1]['number']
