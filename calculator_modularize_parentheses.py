@@ -81,7 +81,7 @@ def parcount(tokens):
 
 
 #calculate until () disappear
-def parentheses(tokens):
+def evaluateParentheses(tokens):
     index = 1
     while index < len(tokens):
 #        print index
@@ -136,7 +136,7 @@ def evaluate(tokens):
 
 def test(line, expectedAnswer):
     tokens = tokenize(line)
-    parentheses(tokens)
+    evaluateParentheses(tokens)
     actualAnswer = evaluate(tokens)
     if abs(actualAnswer - expectedAnswer) < 1e-8:
         print "PASS! (%s = %f)" % (line, expectedAnswer)
@@ -165,7 +165,7 @@ while True:
     finish = 0
     if '(' in line:
         if parcount(tokens) == 'OK':    #if the number of ( and ) are the same
-            parentheses(tokens)         #handle ()
+            evaluateParentheses(tokens)         #handle ()
         else:                           #if the number of ( and ) are different, the calculation is stopped
             finish = 1
     if finish == 0:
